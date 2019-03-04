@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        {{--Navbar de busqueda y crear votante--}}
+        {{--Navbar de busqueda--}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand">Libros</a>
             <ul class="navbar-nav">
@@ -31,7 +31,7 @@
                 </li>
             </ul>
         </nav>
-        {{--Tabla de Votantes--}}
+        {{--Tabla de Libros--}}
         <table class="table">
             <thead class="thead-light">
             <tr>
@@ -58,7 +58,7 @@
                     <td>
                         <form style="display:inline;" action="{{ route('books.destroy', $book->id) }}" method="POST">
                             @csrf
-                            @method('destroy')
+                            @method('delete')
                             <button class="btn btn-danger" type="submit">Eliminar</button>
                         </form>
                     </td>

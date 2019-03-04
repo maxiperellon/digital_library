@@ -8,37 +8,37 @@
             @csrf
             <label for="" class="text-left">
                 ISBN
-                <input class="form-control" type="text" name="isbn" value="{{ old('isbn') }}">
+                <input class="form-control" type="text" name="isbn" value="{{ old('isbn') }}" required>
                 {!! $errors->first('isbn','<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
             <label for="" class="text-left">
                 Nombre
-                <input class="form-control" type="text" name="name" value="{{ old('name') }}">
+                <input class="form-control" type="text" name="name" value="{{ old('name') }}" required>
                 {!! $errors->first('name','<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
             <label for="" class="text-left">
                 Editorial
-                <input class="form-control" type="text" name="publisher" value="{{ old('publisher') }}">
+                <input class="form-control" type="text" name="publisher" value="{{ old('publisher') }}" required>
                 {!! $errors->first('publisher','<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
             <label for="" class="text-left">
                 Edición
-                <input class="form-control" type="text" name="edition" value="{{ old('edition') }}">
+                <input class="form-control" type="text" name="edition" value="{{ old('edition') }}" required>
                 {!! $errors->first('edition','<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
             <label for="" class="text-left">
                 Autor
-                <input class="form-control" type="text" name="author" value="{{ old('author') }}">
+                <input class="form-control" type="text" name="author" value="{{ old('author') }}" required>
                 {!! $errors->first('author','<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
             <label for="" class="text-left">
                 Categoría
-                <input class="form-control" type="text" name="category" value="{{ old('category') }}">
+                <input class="form-control" type="text" name="category" value="{{ old('category') }}" required>
                 {!! $errors->first('category', '<span class="text-danger error">:message</span>') !!}
             </label>
             <br>
