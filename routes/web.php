@@ -18,3 +18,11 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+//BOOKS
+
+Route::get('/libros', 'BookController@index')->name('books.index');
+Route::get('/cargar_libros', 'BookController@create')->name('books.create');
+Route::post('/books', 'BookController@store')->name('books.store');
+Route::post('/books_edit', 'BookController@edit')->name('books.edit');
+
