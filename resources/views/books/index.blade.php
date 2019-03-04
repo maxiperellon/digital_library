@@ -48,7 +48,7 @@
 
             @foreach($books as $book)
                 <tr>
-                    <td>{{ $book->isbn }}</td>
+                    <th>{{ $book->isbn }}</th>
                     <td>{{ $book->name }}</td>
                     <td>{{ $book->publisher }}</td>
                     <td>{{ $book->edition }}</td>
@@ -67,4 +67,3 @@
         </table>
     </div>
 @endsection
-

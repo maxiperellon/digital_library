@@ -5,10 +5,10 @@ use Faker\Generator as Faker;
 $factory->define(\App\Book::class, function (Faker $faker) {
     return [
         'isbn' => $faker->isbn13,
-        'name' => $faker->sentence,
+        'name' => $faker->realText($faker->numberBetween(30,60)),
         'publisher' => $faker->company,
-        'edition' => $faker->numberBetween(1,10),
+        'edition' => $faker->numberBetween(1,10).'°',
         'author' => $faker->name,
-        'category' => $faker->languageCode,
+        'category' => $faker->randomElement(['Salud','Ciencia','Física','Matemática','Química','Informática','Psicología','Historia']),
     ];
 });
