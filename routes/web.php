@@ -11,13 +11,12 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
 
 //BOOKS
 

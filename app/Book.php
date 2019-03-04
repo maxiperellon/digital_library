@@ -9,6 +9,8 @@ class Book extends Model
 {
     use Notifiable;
 
+    protected $primaryKey = 'id';
+    protected $table = 'books';
     protected $fillable = [
         'isbn', 'name', 'publisher', 'edition', 'author',  'category'
     ];
