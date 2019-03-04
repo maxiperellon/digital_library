@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -32,6 +33,27 @@ class BookController extends Controller
     public function create()
     {
         return view('books.create');
+    }
+
+    /**
+     *@param Request $request
+     *@return RedirectResponse
+     */
+    public function searchByFilter(Request $request)
+    {
+        if ($request->filter === 'Filtro' || $request->search === null){
+            Toastr::warning('Revise los parametros de busqueda', 'Buscar');
+
+            return redirect()->route('books.index');
+        }
+
+        $books = Book::where($request->filter, 'like', '%' . $request->search . '%')->paginate(10);
+        if ($books->isEmpty()){
+            Toastr::info('No se encontraron coincidencias');
+            return redirect()->route('books.index');
+        }
+
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -66,7 +88,8 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::find($id);
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -78,7 +101,10 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::find($id);
+        $book -> update($request->all()); //Eloquent
+
+        return redirect()->action('BookController@index', compact('book'));
     }
 
     /**
@@ -89,6 +115,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::destroy($id);
+        return redirect()->action('BookController@index', compact('book'));
     }
 }
