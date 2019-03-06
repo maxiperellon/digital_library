@@ -29,3 +29,13 @@ Route::delete('/books_destroy/{id}', 'BookController@destroy')->name('books.dest
 Route::post('/books/buscar', 'BookController@searchByFilter')->name('books.searchByFilter');
 
 
+//STUDENTS
+
+Route::get('/estudiantes', 'StudentController@index')->name('students.index');
+Route::get('/cargar_alumnos', 'StudentController@create')->name('students.create');
+Route::post('/students', 'StudentController@store')->name('students.store');
+Route::get('/students_edit/{id}', 'StudentController@edit')->name('students.edit');
+Route::patch('/students_update/{id}', 'StudentController@update')->name('students.update');
+Route::delete('/students_destroy/{id}', 'StudentController@destroy')->name('students.destroy');
+Route::post('/students/buscar', 'StudentController@searchByFilter')->name('students.searchByFilter');
+
