@@ -33,6 +33,23 @@ class StudentController extends Controller
         return view('students.create');
     }
 
+    public function searchByFilter(Request $request)
+    {
+        if ($request->filter === 'Filtro' || $request->search === null){
+            Toastr::warning('Revise los parametros de busqueda', 'Buscar');
+
+            return redirect()->route('students.index');
+        }
+
+        $students = Student::where($request->filter, 'like', '%' . $request->search . '%')->paginate(10);
+        if ($students->isEmpty()){
+            Toastr::info('No se encontraron coincidencias');
+            return redirect()->route('students.index');
+        }
+
+        return view('students.index', compact('students'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -65,7 +82,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -77,7 +95,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $student -> update($request->all()); //Eloquent
+
+        return redirect()->action('StudentController@index', compact('student'));
     }
 
     /**
@@ -88,6 +109,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student -> delete($id);
+        return redirect()->action('StudentController@index', compact('student'));
     }
 }
