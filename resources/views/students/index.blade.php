@@ -38,14 +38,14 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">email</th>
-                <th scope="col">phone</th>
-                <th scope="col">address</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
             </thead>
 
-            @foreach($books as $book)
+            @foreach($students as $student)
                 <tr>
                     <th>{{ $student->dni }}</th>
                     <td>{{ $student->name }}</td>
