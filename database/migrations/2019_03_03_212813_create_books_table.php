@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('edition');
             $table->string('author');
             $table->string('category');
+            $table->boolean('condition');
             $table->timestamps();
         });
     }
