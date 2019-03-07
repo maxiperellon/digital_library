@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\BookRequest;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Intervention\Validation\Validator;
@@ -63,7 +64,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         $books = Book::create($request->all()); //Eloquent
 
@@ -89,7 +90,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id);
+        $book = Book::query()->findOrFail($id);
         return view('books.edit', compact('book'));
     }
 
@@ -100,7 +101,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
         $book = Book::find($id);
         $book -> update($request->all()); //Eloquent
