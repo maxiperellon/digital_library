@@ -9,7 +9,7 @@ use Intervention\Validation\Validator;
 
 class BookController extends Controller
 {
-    public function __construct(Book $book)
+    public function __construct()
     {
         $this->middleware('auth');
 
