@@ -42,6 +42,7 @@
                 <th scope="col">Direccion</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
 
@@ -53,12 +54,22 @@
                     <td>{{ $student->email }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>
-                    <td><a class="btn btn-warning" href="{{ route('students.edit', $student->id) }}">Editar</a></td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}"> {{--agregar show--}}
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td><td>
+                        <a class="btn btn-success" href="{{ route('students.edit', $student->id) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
                     <td>
                         <form style="display:inline;" action="{{ route('students.destroy', $student->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                            <button class="btn btn-danger" type="submit">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

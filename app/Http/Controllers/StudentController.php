@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
 use App\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function __construct(Student $student)
+    public function __construct()
     {
         $this->middleware('auth');
 
@@ -56,7 +57,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
         $students = Student::create($request->all()); //Eloquent
 
@@ -71,7 +72,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -82,7 +84,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
+        $student = Student::findOrFail($id);
         return view('students.edit', compact('student'));
     }
 
@@ -93,9 +95,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
-        $student = Student::find($id);
+        $student = Student::findOrFail($id);
         $student -> update($request->all()); //Eloquent
 
         return redirect()->action('StudentController@index', compact('student'));
@@ -109,8 +111,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::find($id);
-        $student -> delete($id);
-        return redirect()->action('StudentController@index', compact('student'));
+        $student = Student::findOrFail($id) -> delete($id);
+        return redirect()->action('StudentController@index');
     }
 }

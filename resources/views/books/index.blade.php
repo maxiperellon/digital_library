@@ -43,6 +43,7 @@
                 <th scope="col">Categoría</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
 
@@ -54,12 +55,22 @@
                     <td>{{ $book->edition }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->category }}</td>
-                    <td><a class="btn btn-warning" href="{{ route('books.edit', $book->id) }}">Editar</a></td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ route('books.edit', $book->id) }}">  {{--agregar show--}}
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td><td>
+                        <a class="btn btn-success" href="{{ route('books.edit', $book->id) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
                     <td>
                         <form style="display:inline;" action="{{ route('books.destroy', $book->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                            <button class="btn btn-danger" type="submit">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

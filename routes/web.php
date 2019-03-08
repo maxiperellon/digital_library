@@ -38,4 +38,5 @@ Route::get('/students_edit/{id}', 'StudentController@edit')->name('students.edit
 Route::patch('/students_update/{id}', 'StudentController@update')->name('students.update');
 Route::delete('/students_destroy/{id}', 'StudentController@destroy')->name('students.destroy');
 Route::post('/students/buscar', 'StudentController@searchByFilter')->name('students.searchByFilter');
+Route::get('/dato_alumno/{id}', 'StudentController@show')->name('students.show');
 
