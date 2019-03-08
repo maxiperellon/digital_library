@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,5 +12,6 @@ class DatabaseSeeder extends Seeder
     {
        $this->call(BooksTableSeeder::class);
        $this->call(UserTableSeeder::class);
+       $this->call(StudentsTableSeeder::class);
     }
 }
