@@ -55,7 +55,7 @@
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}"> {{--agregar show--}}
+                        <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}">
                             <i class="fas fa-eye"></i>
                         </a>
                     </td><td>

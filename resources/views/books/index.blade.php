@@ -56,7 +56,7 @@
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->category }}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{{ route('books.edit', $book->id) }}">  {{--agregar show--}}
+                        <a class="btn btn-secondary" href="{{ route('books.show', $book->id) }}">
                             <i class="fas fa-eye"></i>
                         </a>
                     </td><td>
