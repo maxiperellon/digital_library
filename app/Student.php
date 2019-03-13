@@ -15,5 +15,8 @@ class Student extends Model
         'dni', 'name', 'career', 'email', 'phone', 'address'
     ];
 
-    //
+    public function books (){
+        return $this->belongsToMany(Book::class);
+    }
+
 }

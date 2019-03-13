@@ -15,6 +15,12 @@ class Book extends Model
         'isbn', 'name', 'publisher', 'edition', 'author',  'category'
     ];
 
+    public function students (){
+        return $this->belongsToMany(Student::class);
+    }
+
+
+
     /*public function findVoterByDNI($voter_dni){
         return Voter::whereDni($voter_dni)->first();
     }*/
