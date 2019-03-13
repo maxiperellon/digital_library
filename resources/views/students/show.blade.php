@@ -36,6 +36,8 @@
                 <input class="form-control" type="text" name="address" value="{{$student->address }}" disabled >
             </label>
             <br>
+            <br>
+            <a class="btn btn-dark" href="{{ route('books.index') }}">Libros</a>
             <input class="btn btn-primary" type="submit" value="{{ 'Guardar ' }}">
             <a class="btn btn-danger" href="{{ route('students.index') }}">Cancelar</a>
 

@@ -59,7 +59,18 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        $students = Student::create($request->all()); //Eloquent
+        $student = new Student();
+        $student->dni = $request->dni;
+        $student->name = $request->name;
+        $student->carrer = $request->carrer;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->address = $request->address;
+
+        $student->save();
+
+        $books = $request->books;
+        $student->roles()->attach($books);
 
         return redirect()->action('StudentController@index', compact('students'));
     }
@@ -84,8 +95,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
-        return view('students.edit', compact('student'));
+        return view('students.edit', compact('student','book'));
     }
 
     /**
@@ -115,3 +125,5 @@ class StudentController extends Controller
         return redirect()->action('StudentController@index');
     }
 }
+
+

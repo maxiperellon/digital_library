@@ -14,8 +14,8 @@ class CreateBookStudentTable extends Migration
     public function up()
     {
         Schema::create('book_student', function (Blueprint $table) {
-            $table->integer('student_id')->unique();
-            $table->integer('book_id')->unique();
+            $table->integer('student_id')->unsigned();
+            $table->integer('book_id')->unsigned();
         });
     }
 
