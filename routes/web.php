@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 //BOOKS
 
 Route::get('/libros', 'BookController@index')->name('books.index');
