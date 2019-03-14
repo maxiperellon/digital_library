@@ -12,16 +12,10 @@ class Book extends Model
     protected $primaryKey = 'id';
     protected $table = 'books';
     protected $fillable = [
-        'isbn', 'name', 'publisher', 'edition', 'author',  'category'
+        'isbn', 'name', 'publisher', 'edition', 'author',  'category', 'condition',
     ];
 
     public function students (){
         return $this->belongsToMany(Student::class);
     }
-
-
-
-    /*public function findVoterByDNI($voter_dni){
-        return Voter::whereDni($voter_dni)->first();
-    }*/
 }
