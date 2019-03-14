@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @method static pluck($string, $string1)
+ */
 class Book extends Model
 {
     use Notifiable;
@@ -19,9 +22,4 @@ class Book extends Model
         return $this->belongsToMany(Student::class);
     }
 
-
-
-    /*public function findVoterByDNI($voter_dni){
-        return Voter::whereDni($voter_dni)->first();
-    }*/
 }

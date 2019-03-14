@@ -104,7 +104,6 @@ class BookController extends Controller
         $book = Book::findOrFail($id) -> update($request->all());
         return redirect()->action('BookController@index', compact('book'));
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -116,4 +115,5 @@ class BookController extends Controller
         $book = Book::findOrFail($id) -> delete($id);
         return redirect()->action('BookController@index');
     }
+    /*public function for_hire()*/
 }
