@@ -55,7 +55,7 @@
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}"> {{--agregar show--}}
+                        <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}">
                             <i class="fas fa-eye"></i>
                         </a>
                     </td><td>
@@ -63,6 +63,7 @@
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
+                    @if(auth()->user()->role === 'admin')
                     <td>
                         <form style="display:inline;" action="{{ route('students.destroy', $student->id) }}" method="POST">
                             @csrf
@@ -72,6 +73,7 @@
                             </button>
                         </form>
                     </td>
+                    @endif
                 </tr>
             @endforeach
         </table>

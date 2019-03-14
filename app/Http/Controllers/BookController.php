@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\BookRequest;
+use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Intervention\Validation\Validator;
 
 class BookController extends Controller
 {
-    public function __construct(Book $book)
+    public function __construct()
     {
         $this->middleware('auth');
-
     }
 
     /**
@@ -53,7 +54,6 @@ class BookController extends Controller
             Toastr::info('No se encontraron coincidencias');
             return redirect()->route('books.index');
         }
-
         return view('books.index', compact('books'));
     }
 
@@ -63,10 +63,9 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        $books = Book::create($request->all()); //Eloquent
-
+        $books = Book::create($request->all());
         return redirect()->action('BookController@index', compact('books'));
     }
 
@@ -78,7 +77,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -89,7 +89,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id);
+        $book = Book::query()->findOrFail($id);
         return view('books.edit', compact('book'));
     }
 
@@ -100,11 +100,9 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
-        $book = Book::find($id);
-        $book -> update($request->all()); //Eloquent
-
+        $book = Book::findOrFail($id) -> update($request->all());
         return redirect()->action('BookController@index', compact('book'));
     }
 
@@ -116,8 +114,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id);
-        $book -> delete($id);
-        return redirect()->action('BookController@index', compact('book'));
+        $book = Book::findOrFail($id) -> delete($id);
+        return redirect()->action('BookController@index');
     }
 }
