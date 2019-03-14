@@ -64,6 +64,7 @@
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
+                    @if(auth()->user()->role === 'admin')
                     <td>
                         <form style="display:inline;" action="{{ route('books.destroy', $book->id) }}" method="POST">
                             @csrf
@@ -73,6 +74,7 @@
                             </button>
                         </form>
                     </td>
+                    @endif
                 </tr>
             @endforeach
         </table>
