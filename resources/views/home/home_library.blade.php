@@ -1,20 +1,17 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container-fluid">
-        {{--Navbar de busqueda--}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand">HOME</a>
-            <ul class="navbar-nav">
-                <li>
-                    <div class="my-sm-2">
-
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <button type="button" class="btn btn-primary btn-lg btn-block" href="{{ route('books.index') }}">LIBROS</button>
-        <br>
-        <button type="button" class="btn btn-secondary btn-lg btn-block" href="{{ route('students.index') }}">ESTUDIANTES</button>
+    <div class="container-fluid text-center">
+        <img src="{{ asset('/img/imagen_libro.png') }}" style="width: 30% ; height: 30%">
+        <br><br>
+        <div class="container-fluid col-md-6 text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('books.index') }}">LIBROS</a>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-secondary btn-lg btn-block" href="{{ route('students.index') }}">ESTUDIANTES</a>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
