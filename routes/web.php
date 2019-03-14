@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//HOME
+
+Route::get('/home_library', 'HomeController@home_library')->name('home.home_library');
+
 //BOOKS
 
 Route::get('/libros', 'BookController@index')->name('books.index');
