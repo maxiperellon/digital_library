@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function home_library()
+    {
+        return view('home.home_library');
+    }
 }
