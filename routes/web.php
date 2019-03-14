@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//HOME
+
+Route::get('/home_library', 'HomeController@home_library')->name('home.home_library');
 
 //BOOKS
 
@@ -27,6 +30,7 @@ Route::get('/books_edit/{id}', 'BookController@edit')->name('books.edit');
 Route::patch('/books_update/{id}', 'BookController@update')->name('books.update');
 Route::delete('/books_destroy/{id}', 'BookController@destroy')->name('books.destroy');
 Route::post('/books/buscar', 'BookController@searchByFilter')->name('books.searchByFilter');
+Route::get('/ver_libro/{id}', 'BookController@show')->name('books.show');
 
 
 //STUDENTS

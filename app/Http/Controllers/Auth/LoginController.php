@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/libros';
+    protected $redirectTo = '/home_library';
 
     /**
      * Create a new controller instance.
@@ -43,6 +43,6 @@ class LoginController extends Controller
             return $this->redirectTo();
         }
 
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/libros';
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home_library';
     }
 }
