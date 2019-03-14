@@ -62,7 +62,7 @@ class StudentController extends Controller
         $student = new Student();
         $student->dni = $request->dni;
         $student->name = $request->name;
-        $student->carrer = $request->carrer;
+        $student->career = $request->career;
         $student->email = $request->email;
         $student->phone = $request->phone;
         $student->address = $request->address;
@@ -70,7 +70,7 @@ class StudentController extends Controller
         $student->save();
 
         $books = $request->books;
-        $student->roles()->attach($books);
+        $student->books()->attach($books);
 
         return redirect()->action('StudentController@index', compact('students'));
     }
@@ -95,7 +95,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        return view('students.edit', compact('student','book'));
+        $student = Student::query()->findOrFail($id);
+        return view('students.edit', compact('student'));
     }
 
     /**

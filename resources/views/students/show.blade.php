@@ -37,7 +37,7 @@
             </label>
             <br>
             <br>
-            <a class="btn btn-dark" href="{{ route('books.index') }}">Libros</a>
+            <a class="btn btn-dark" href="{{ route('for_hire.for_hire') }}">Libros</a>
             <input class="btn btn-primary" type="submit" value="{{ 'Guardar ' }}">
             <a class="btn btn-danger" href="{{ route('students.index') }}">Cancelar</a>
 

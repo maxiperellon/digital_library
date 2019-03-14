@@ -11,5 +11,5 @@ $factory->define(\App\Book::class, function (Faker $faker) {
         'author' => $faker->name,
         'category' => $faker->randomElement(['Salud','Ciencia','Física','Matemática','Química','Informática','Psicología','Historia']),
         'condition' => $faker->boolean,
-    ];
+        ];
 });

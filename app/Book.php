@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @method static pluck($string, $string1)
+ */
 class Book extends Model
 {
     use Notifiable;
@@ -18,4 +21,5 @@ class Book extends Model
     public function students (){
         return $this->belongsToMany(Student::class);
     }
+
 }
