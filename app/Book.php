@@ -19,7 +19,7 @@ class Book extends Model
     ];
 
     public function students (){
-        return $this->belongsToMany(Student::class);
+        return $this->belongsTo(Student::class);
     }
 
 }

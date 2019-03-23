@@ -44,3 +44,5 @@ Route::delete('/students_destroy/{id}', 'StudentController@destroy')->name('stud
 Route::post('/students/buscar', 'StudentController@searchByFilter')->name('students.searchByFilter');
 Route::get('/dato_alumno/{id}', 'StudentController@show')->name('students.show');
 
+//PRESTAMO LIBROS
+//Route::get('/dato_alumno/{id}', 'StudentController@store')->name('for_hire.for_hire');

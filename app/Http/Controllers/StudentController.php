@@ -69,10 +69,11 @@ class StudentController extends Controller
 
         $student->save();
 
-        $books = $request->books;
+        /*$books = $request->books;
         $student->books()->attach($books);
+        $student = Student::all()->with('books');*/
 
-        return redirect()->action('StudentController@index', compact('students'));
+        return redirect()->action('StudentController@index', compact('student'));
     }
 
     /**
@@ -122,9 +123,14 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::findOrFail($id) -> delete($id);
+        Student::findOrFail($id) -> delete($id);
         return redirect()->action('StudentController@index');
     }
+
+    /*public function for_hire()
+    {
+
+    }*/
 }
 
 

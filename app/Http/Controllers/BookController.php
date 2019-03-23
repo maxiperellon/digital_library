@@ -116,5 +116,5 @@ class BookController extends Controller
         $book = Book::findOrFail($id) -> delete($id);
         return redirect()->action('BookController@index');
     }
-    /*public function for_hire()*/
+
 }
