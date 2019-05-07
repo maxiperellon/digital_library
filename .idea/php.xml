@@ -80,6 +80,10 @@
       <path value="$PROJECT_DIR$/vendor/brian2694/laravel-toastr" />
       <path value="$PROJECT_DIR$/vendor/intervention/validation" />
       <path value="$PROJECT_DIR$/vendor/laraveles/spanish" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/reliese/laravel" />
     </include_path>
   </component>
   <component name="PhpUnit">

@@ -37,4 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function forHires(){
+        return $this->hasOne(ForHire::class);
+    }
+
 }

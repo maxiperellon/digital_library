@@ -7,22 +7,32 @@ use Illuminate\Database\Migrations\Migration;
 class CreateBooksTable extends Migration
 {
     /**
+     * Schema table name to migrate
+     * @var string
+     */
+    public $tableName = 'books';
+
+    /**
      * Run the migrations.
+     * @table books
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('isbn')->unique();
+        Schema::create($this->tableName, function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('isbn');
             $table->string('name');
             $table->string('publisher');
             $table->string('edition');
             $table->string('author');
             $table->string('category');
-            $table->boolean('condition');
-            $table->timestamps();
+            $table->tinyInteger('condition');
+
+            $table->unique(["isbn"], 'books_isbn_unique');
+            $table->nullableTimestamps();
         });
     }
 
@@ -31,8 +41,8 @@ class CreateBooksTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('books');
-    }
+     public function down()
+     {
+       Schema::dropIfExists($this->tableName);
+     }
 }
