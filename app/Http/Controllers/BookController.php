@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
+
 use App\Http\Requests\BookRequest;
+use App\Models\Book;
 use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
