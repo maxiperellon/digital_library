@@ -167,6 +167,7 @@ return [
          */
         Intervention\Validation\ValidationServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
+        Reliese\Coders\CodersServiceProvider::class,
 
         /*
          * Application Service Providers...

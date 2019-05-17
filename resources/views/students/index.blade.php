@@ -30,7 +30,7 @@
                 </li>
             </ul>
         </nav>
-        {{--Tabla de Libros--}}
+        {{--Tabla de Estudiantes--}}
         <table class="table">
             <thead class="thead-light">
             <tr>

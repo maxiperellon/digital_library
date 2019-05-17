@@ -36,9 +36,13 @@
                 <input class="form-control" type="text" name="address" value="{{$student->address }}" disabled >
             </label>
             <br>
-            <input class="btn btn-primary" type="submit" value="{{ 'Guardar ' }}">
-            <a class="btn btn-danger" href="{{ route('students.index') }}">Cancelar</a>
-
+            <br>
+           {{-- <label for="" class="text-left">
+                Libros
+                <input class="form-control" type="text" name="book" value="{{$student->book }}" disabled >
+            </label>--}}
+            {{--<a class="btn btn-dark" href="{{ route('for_hire.for_hire') }}">Libros</a>--}}
+            <a class="btn btn-secondary" href="{{ route('students.index') }}">Volver</a>
         </form>
         <hr>
     </div>

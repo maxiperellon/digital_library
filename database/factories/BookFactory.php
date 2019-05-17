@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Book::class, function (Faker $faker) {
+$factory->define(\App\Models\Book::class, function (Faker $faker) {
     return [
         'isbn' => $faker->isbn13,
         'name' => $faker->realText($faker->numberBetween(30,60)),
@@ -11,5 +11,5 @@ $factory->define(\App\Book::class, function (Faker $faker) {
         'author' => $faker->name,
         'category' => $faker->randomElement(['Salud','Ciencia','Física','Matemática','Química','Informática','Psicología','Historia']),
         'condition' => $faker->boolean,
-    ];
+        ];
 });

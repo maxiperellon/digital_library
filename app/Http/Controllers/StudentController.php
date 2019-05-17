@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentRequest;
-use App\Student;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -59,9 +59,21 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        $students = Student::create($request->all()); //Eloquent
+        $student = new Student();
+        $student->dni = $request->dni;
+        $student->name = $request->name;
+        $student->career = $request->career;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->address = $request->address;
 
-        return redirect()->action('StudentController@index', compact('students'));
+        $student->save();
+
+        /*$books = $request->books;
+        $student->books()->attach($books);
+        $student = Student::all()->with('books');*/
+
+        return redirect()->action('StudentController@index', compact('student'));
     }
 
     /**
@@ -84,7 +96,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
+        $student = Student::query()->findOrFail($id);
         return view('students.edit', compact('student'));
     }
 
@@ -111,7 +123,14 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::findOrFail($id) -> delete($id);
+        Student::findOrFail($id) -> delete($id);
         return redirect()->action('StudentController@index');
     }
+
+    /*public function for_hire()
+    {
+
+    }*/
 }
+
+
