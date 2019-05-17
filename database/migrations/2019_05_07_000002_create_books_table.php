@@ -22,7 +22,7 @@ class CreateBooksTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('isbn');
             $table->string('name');
             $table->string('publisher');

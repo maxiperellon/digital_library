@@ -1,5 +1,5 @@
 <?php
-use App\Book;
+use App\Models\Book;
 use Illuminate\Database\Seeder;
 
 class BooksTableSeeder extends Seeder

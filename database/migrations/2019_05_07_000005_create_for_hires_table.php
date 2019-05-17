@@ -22,10 +22,10 @@ class CreateForHiresTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('id_students');
-            $table->integer('id_books');
-            $table->integer('id_users');
+            $table->increments('id')->unsigned();
+            $table->integer('id_students')->unsigned();
+            $table->integer('id_books')->unsigned();
+            $table->integer('id_users')->unsigned();
 
             $table->index(["id_books"], 'fk_for_hires_1_idx');
 
