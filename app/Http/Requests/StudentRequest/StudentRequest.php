@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\StudentRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BookRequest extends FormRequest
+class StudentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'dni' => 'required|string|unique:student,dni',
+            'name' => 'required|string',
+            'career' => 'required|string',
+            'email' => 'required|string',
+            'phone' => 'required|string',
+            'address' => 'required|string',
         ];
     }
 }
