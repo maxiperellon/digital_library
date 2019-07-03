@@ -58,9 +58,15 @@
                         <a class="btn btn-secondary" href="{{ route('students.show', $student->id) }}">
                             <i class="fas fa-eye"></i>
                         </a>
-                    </td><td>
+                    </td>
+                    <td>
                         <a class="btn btn-success" href="{{ route('students.edit', $student->id) }}">
                             <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="{{ route('for_hire.show', $student->id) }}">
+                            <i class="<i fas fa-user-plus"></i>
                         </a>
                     </td>
                     @if(auth()->user()->role === 'admin')

@@ -6,10 +6,16 @@
         <div class="container-fluid col-md-6 text-center">
             <div class="row">
                 <div class="col-md-6">
-                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('books.index') }}">LIBROS</a>
-                </div>
-                <div class="col-md-6">
                     <a class="btn btn-secondary btn-lg btn-block" href="{{ route('students.index') }}">ESTUDIANTES</a>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <a class="btn btn-secondary btn-lg btn-block" href="{{ route('books.index') }}">CARGAR LIBRO</a>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <br>
+                    <a class="btn btn-secondary btn-lg btn-block" href="{{ route('for_hire.index') }}">PRESTAMOS</a>
                 </div>
             </div>
         </div>

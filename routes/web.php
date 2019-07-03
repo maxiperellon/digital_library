@@ -44,5 +44,13 @@ Route::delete('/students_destroy/{id}', 'StudentController@destroy')->name('stud
 Route::post('/students/buscar', 'StudentController@searchByFilter')->name('students.searchByFilter');
 Route::get('/dato_alumno/{id}', 'StudentController@show')->name('students.show');
 
-//PRESTAMO LIBROS
-//Route::get('/dato_alumno/{id}', 'StudentController@store')->name('for_hire.for_hire');
+//FOR HIRES
+
+Route::get('/prestamo/', 'ForHireController@index')->name('for_hire.index');
+Route::get('/cargar_prestamos', 'ForHireController@create')->name('for_hire.create');
+Route::post('/prestamos_alumno', 'ForHireController@store')->name('for_hire.store');
+Route::post('/search/{id?}/{bookid?}', 'ForHireController@searchByFilter')->name('for_hire.searchByFilter');
+Route::get('/prestamo/{id}', 'ForHireController@show')->name('for_hire.show');
+Route::get('/prestamo/{id}/{bookid?}', 'ForHireController@add')->name('for_hire.add');
+
+
