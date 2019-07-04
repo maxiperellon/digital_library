@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Http\Requests\BookRequest;
+use App\Http\Requests\BookRequest\BookRequest;
+use App\Http\Requests\BookRequest\UpdateBookRequest;
 use App\Models\Book;
-use App\User;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
-use Intervention\Validation\Validator;
 
 class BookController extends Controller
 {
@@ -66,8 +63,20 @@ class BookController extends Controller
      */
     public function store(BookRequest $request)
     {
-        $books = Book::create($request->all());
+        $book = new Book();
+//        $books = Book::create($request->all());
+//        return redirect()->action('BookController@index', compact('books'));
+        $book->isbn = $request->isbn;
+        $book->name = $request->name;
+        $book->publisher = $request->publisher;
+        $book->author = $request->author;
+        $book->category = $request->category;
+        $book->condition = $request->condition;
+
+        $book->save();
+
         return redirect()->action('BookController@index', compact('books'));
+
     }
 
     /**
@@ -90,7 +99,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::query()->findOrFail($id);
+        $book = Book::findOrFail($id);
         return view('books.edit', compact('book'));
     }
 
@@ -101,7 +110,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BookRequest $request, $id)
+    public function update(UpdateBookRequest $request, $id)
     {
         $book = Book::findOrFail($id) -> update($request->all());
         return redirect()->action('BookController@index', compact('book'));

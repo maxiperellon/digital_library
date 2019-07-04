@@ -43,7 +43,6 @@
                 {!! $errors->first('address', '<span class=error>:message</span>') !!}
             </label>
             <br>
-            <br>
             <input class="btn btn-primary" type="submit" value="{{ 'Guardar ' }}">
             <a class="btn btn-danger" href="{{ route('students.index') }}">Cancelar</a>
 
