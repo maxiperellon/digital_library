@@ -61,7 +61,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BookRequest $request)
+    public function store(UpdateBookRequest $request)
     {
         $book = new Book();
 //        $books = Book::create($request->all());
