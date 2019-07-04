@@ -46,11 +46,12 @@ Route::get('/dato_alumno/{id}', 'StudentController@show')->name('students.show')
 
 //FOR HIRES
 
-Route::get('/prestamo/', 'ForHireController@index')->name('for_hire.index');
+Route::get('/prestamos/', 'ForHireController@index')->name('for_hire.index');
 Route::get('/cargar_prestamos', 'ForHireController@create')->name('for_hire.create');
 Route::post('/prestamos_alumno', 'ForHireController@store')->name('for_hire.store');
+Route::delete('/prestamo_borrado/{id}', 'ForHireController@destroy')->name('for_hire.destroy');
 Route::post('/search/{id?}/{bookid?}', 'ForHireController@searchByFilter')->name('for_hire.searchByFilter');
-Route::get('/prestamo/{id}', 'ForHireController@show')->name('for_hire.show');
+Route::get('/realizar_prestamo/{id}', 'ForHireController@show')->name('for_hire.show');
 Route::get('/prestamo/{id}/{bookid?}', 'ForHireController@add')->name('for_hire.add');
 
 

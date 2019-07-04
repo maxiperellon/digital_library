@@ -18,8 +18,10 @@ class ForHireController extends Controller
     public function index()
     {
         $students = Student::all();
+        $books = Book::all();
+        $for_hires = ForHire::all();
 
-        return view('for_hire.show', compact('students'));
+        return view('for_hire.index', compact('students'), compact('for_hires'),  compact('books'));
     }
 
     /**
@@ -133,20 +135,11 @@ class ForHireController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ForHire::findOrFail($id) -> delete($id);
+        return redirect()->action('ForHireController@index');
     }
 
-    public function getForHire()
-    {
-        $students = DB::table('students')->get('id');
-        Student::all()->pluck('id');
-        $books = DB::table('books')->get('id');
-
-        return view('for_hire.get_for_hire')->with([
-            'students' => $students,
-            'books' => $books]
-        );
 
 
-    }
+
 }
