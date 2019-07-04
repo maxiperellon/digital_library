@@ -23,7 +23,7 @@
                 </li>
             </ul>
         </nav>
-        {{--Tabla de Libros--}}
+        {{--Tabla de Prestamos--}}
         <table class="table">
             <thead class="thead-light">
             <tr>
@@ -43,14 +43,17 @@
                     <td>{{ $for_hire->student->name }}</td>
                     <td>{{ $for_hire->book->name }}</td>
                     <td>{{ $for_hire->student->career }}</td>
-                    <td>{{ $for_hire->student->email }}</td>
                     <td>{{ $for_hire->student->phone }}</td>
                     <td>{{ $for_hire->student->address }}</td>
                     <td>
                     <td>
-                        <a class="btn btn-secondary" href="{{ route('for_hire.add', [$book->id,$student->id])}}">
-                            <i class="fas fa-book"></i>
-                        </a>
+                        <form style="display:inline;" action="{{ route('for_hire.destroy', $for_hire->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger" type="submit">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
