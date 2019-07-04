@@ -79,9 +79,9 @@
         </form>
         <hr>
 
-            <form action="{{ route('for_hire.add', [$student->id,$book->id]) }}" method="POST">
+            <form action="{{ route('for_hire.store', [$book->id,$student->id]) }}" method="POST">
             <br>
-            <a class="btn btn-secondary" href="{{ route('for_hire.index',[$book->id,$student->id]) }}">Efectuar Préstamo</a>
+            <a class="btn btn-secondary" href="{{ route('for_hire.store',[$student->id,$book->id]) }}">Efectuar Préstamo</a>
 
             </form>
     </div>

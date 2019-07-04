@@ -40,10 +40,18 @@ class ForHireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id,$bookid)
     {
-        $for_hires = ForHire::create($request->all());
-        return redirect()->action('ForHireController@index', compact('for_hires'));
+
+        $for_hire = new ForHire();
+        $for_hire->id_books = $bookid;
+        $for_hire->id_students = $id;
+        $for_hire->id_users = 4;
+
+
+        $for_hire->save();
+
+        return redirect()->action('ForHireController@index', compact('for_hire'));
     }
 
     /**
@@ -70,7 +78,7 @@ class ForHireController extends Controller
         $book = Book::findOrFail($bookid);
         //$books = Book::all();
 
-        return view('for_hire.add',compact('book'),compact('student'));
+        return view('for_hire.add' ,compact('student'), compact('book'));
     }
    /* public function searchByDni(Request $request)
     {
