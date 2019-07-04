@@ -123,7 +123,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::findOrFail($id) -> delete($id);
+        Book::findOrFail($id) -> delete($id);
         return redirect()->action('BookController@index');
     }
 
