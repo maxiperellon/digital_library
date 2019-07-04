@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StudentRequest;
+use App\Http\Requests\StudentRequest\StudentRequest;
+use App\Http\Requests\StudentRequest\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -69,10 +70,6 @@ class StudentController extends Controller
 
         $student->save();
 
-        /*$books = $request->books;
-        $student->books()->attach($books);
-        $student = Student::all()->with('books');*/
-
         return redirect()->action('StudentController@index', compact('student'));
     }
 
@@ -96,7 +93,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::query()->findOrFail($id);
+        $student = Student::findOrFail($id);
         return view('students.edit', compact('student'));
     }
 
@@ -107,11 +104,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StudentRequest $request, $id)
+    public function update(UpdateStudentRequest $request, $id)
     {
-        $student = Student::findOrFail($id);
-        $student -> update($request->all()); //Eloquent
-
+        $student = Student::findOrFail($id) -> update($request->all());
         return redirect()->action('StudentController@index', compact('student'));
     }
 
@@ -132,5 +127,4 @@ class StudentController extends Controller
 
     }*/
 }
-
 
