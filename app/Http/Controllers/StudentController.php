@@ -58,7 +58,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(UpdateStudentRequest $request)
     {
         $student = new Student();
         $student->dni = $request->dni;
