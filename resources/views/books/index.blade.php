@@ -51,7 +51,7 @@
 
 
                 <tr>
-                    @if($book->condition == 0)
+                    @if($book->condition == 1)
                     <th>{{ $book->isbn }}</th>
                     <td>{{ $book->name }}</td>
                     <td>{{ $book->publisher }}</td>
