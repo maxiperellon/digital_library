@@ -36,7 +36,7 @@
                 <input class="form-control" type="text" name="category" value="{{$book->category }}" disabled>
             </label>
             <br>
-            <a class="btn btn-danger" href="{{ route('books.index') }}">Cancelar</a>
+            <a class="btn btn-secondary" href="{{ route('books.index') }}">Volver</a>
         </form>
         <hr>
     </div>
