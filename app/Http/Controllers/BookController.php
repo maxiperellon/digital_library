@@ -61,7 +61,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UpdateBookRequest $request)
+    public function store(Request $request)
     {
         $book = new Book();
 //        $books = Book::create($request->all());
@@ -69,9 +69,10 @@ class BookController extends Controller
         $book->isbn = $request->isbn;
         $book->name = $request->name;
         $book->publisher = $request->publisher;
+        $book->edition = $request->edition;
         $book->author = $request->author;
         $book->category = $request->category;
-        $book->condition = $request->condition;
+        //$book->condition = $request->condition;
 
         $book->save();
 

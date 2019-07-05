@@ -29,7 +29,7 @@ class CreateBooksTable extends Migration
             $table->string('edition');
             $table->string('author');
             $table->string('category');
-            $table->tinyInteger('condition');
+            $table->tinyInteger('condition')->default('0');
 
             $table->unique(["isbn"], 'books_isbn_unique');
             $table->nullableTimestamps();
