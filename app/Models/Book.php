@@ -50,4 +50,5 @@ class Book extends Eloquent
 	{
 		return $this->hasMany(\App\Models\ForHire::class, 'id_books');
 	}
+
 }

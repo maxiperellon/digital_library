@@ -37,17 +37,17 @@ class CreateForHiresTable extends Migration
             $table->foreign('id_books', 'fk_for_hires_1_idx')
                 ->references('id')->on('books')
                 ->onDelete('Cascade')
-                ->onUpdate('no action');
+                ->onUpdate('Cascade');
 
             $table->foreign('id_students', 'fk_for_hires_2_idx')
                 ->references('id')->on('students')
                 ->onDelete('Cascade')
-                ->onUpdate('no action');
+                ->onUpdate('Cascade');
 
             $table->foreign('id_users', 'fk_for_hires_3_idx')
                 ->references('id')->on('users')
                 ->onDelete('Cascade')
-                ->onUpdate('no action');
+                ->onUpdate('Cascade');
         });
     }
 
