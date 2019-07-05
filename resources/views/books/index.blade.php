@@ -48,7 +48,10 @@
             </thead>
 
             @foreach($books as $book)
+
+
                 <tr>
+                    @if($book->condition == 0)
                     <th>{{ $book->isbn }}</th>
                     <td>{{ $book->name }}</td>
                     <td>{{ $book->publisher }}</td>
@@ -76,7 +79,9 @@
                         </form>
                     </td>
                     @endif
+                @endif
                 </tr>
+
             @endforeach
         </table>
     </div>
