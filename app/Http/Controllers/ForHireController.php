@@ -47,11 +47,14 @@ class ForHireController extends Controller
         $for_hire->id_books = $bookid;
         $for_hire->id_students = $id;
         $for_hire->id_users = 4;
+        $books=Book::findOrFail($bookid);
+        $books->setAttribute('condition','0');
 
 
+        $books->save();
         $for_hire->save();
 
-        return redirect()->action('ForHireController@index', compact('for_hire'));
+        return redirect()->action('ForHireController@index' , compact('for_hire'));
     }
 
     /**

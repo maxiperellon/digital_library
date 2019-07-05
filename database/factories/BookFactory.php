@@ -10,6 +10,6 @@ $factory->define(\App\Models\Book::class, function (Faker $faker) {
         'edition' => (string)$faker->numberBetween(1,10).'°',
         'author' => (string)$faker->name,
         'category' => (string)$faker->randomElement(['Salud','Ciencia','Física','Matemática','Química','Informática','Psicología','Historia']),
-        'condition' => $faker->boolean,
+        'condition' => 1,
         ];
 });
