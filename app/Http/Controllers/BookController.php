@@ -101,6 +101,8 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         return view('books.edit', compact('book'));
+
+
     }
 
     /**
@@ -110,7 +112,8 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookRequest $request, $id)
+
+    public function update(Request $request, $id)
     {
         $book = Book::findOrFail($id) -> update($request->all());
         return redirect()->action('BookController@index', compact('book'));

@@ -59,7 +59,8 @@
                         <a class="btn btn-secondary" href="{{ route('books.show', $book->id) }}">
                             <i class="fas fa-eye"></i>
                         </a>
-                    </td><td>
+                    </td>
+                    <td>
                         <a class="btn btn-success" href="{{ route('books.edit', $book->id) }}">
                             <i class="fas fa-edit"></i>
                         </a>
