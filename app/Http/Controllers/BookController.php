@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BookRequest\BookRequest;
-use App\Http\Requests\BookRequest\UpdateBookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -42,14 +40,11 @@ class BookController extends Controller
     public function searchByFilter(Request $request)
     {
         if ($request->filter === 'Filtro' || $request->search === null){
-            Toastr::warning('Revise los parametros de busqueda', 'Buscar');
-
             return redirect()->route('books.index');
         }
 
         $books = Book::where($request->filter, 'like', '%' . $request->search . '%')->paginate(10);
         if ($books->isEmpty()){
-            Toastr::info('No se encontraron coincidencias');
             return redirect()->route('books.index');
         }
         return view('books.index', compact('books'));
@@ -64,15 +59,12 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $book = new Book();
-//        $books = Book::create($request->all());
-//        return redirect()->action('BookController@index', compact('books'));
         $book->isbn = $request->isbn;
         $book->name = $request->name;
         $book->publisher = $request->publisher;
         $book->edition = $request->edition;
         $book->author = $request->author;
         $book->category = $request->category;
-        //$book->condition = $request->condition;
 
         $book->save();
 

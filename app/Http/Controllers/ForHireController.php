@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\ForHire;
 use App\Models\Student;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ForHireController extends Controller
@@ -49,8 +48,6 @@ class ForHireController extends Controller
         $for_hire->id_users = 4;
         $books=Book::findOrFail($bookid);
         $books->setAttribute('condition','0');
-
-
         $books->save();
         $for_hire->save();
 
@@ -69,8 +66,6 @@ class ForHireController extends Controller
         $student = Student::findOrFail($id);
         $books = Book::all();
 
-
-
         return view('for_hire.show', compact('student'),compact('books'));
     }
 
@@ -79,41 +74,20 @@ class ForHireController extends Controller
 
         $student = Student::findOrFail($id);
         $book = Book::findOrFail($bookid);
-        //$books = Book::all();
 
         return view('for_hire.add' ,compact('student'), compact('book'));
     }
-   /* public function searchByDni(Request $request)
-    {
-        if ($request->filter === 'Filtro' || $request->search === null){
 
-            return redirect()->route('for_hire.index');
-        }*/
-        public function searchByFilter(Request $request,$id)
+    public function searchByFilter(Request $request, $id)
     {
-
         $student = Student::findOrFail($id);
-        $book = Book::findOrFail($bookid);
-        if ($request->filter === 'Filtro' || $request->search === null){
-            Toastr::warning('Revise los parametros de busqueda', 'Buscar');
-
-            return redirect()->route('for_hire.index');
+        $books = Book::where('isbn', '=', $request->search)->get();
+        if ($request->filter === 'Filtro' || $request->search === null)
+        {
+            return redirect()->route('for_hire.show', compact('student'));
         }
-
-        $books = Book::where($request->filter, 'like', '$request->search')->paginate(10);
-        if ($books->isEmpty()){
-            Toastr::info('No se encontraron coincidencias');
-            return redirect()->route('for_hire.index');
-        }
-        return view('for_hire.show', compact('books'),compact('book'),compact('student'));
+        return view('for_hire.show', compact('books'), compact('student'));
     }
-
-
-
-
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -149,8 +123,5 @@ class ForHireController extends Controller
         ForHire::findOrFail($id) -> delete($id);
         return redirect()->action('ForHireController@index');
     }
-
-
-
 
 }

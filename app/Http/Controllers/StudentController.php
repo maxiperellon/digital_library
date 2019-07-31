@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StudentRequest\StudentRequest;
 use App\Http\Requests\StudentRequest\UpdateStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -38,14 +37,12 @@ class StudentController extends Controller
     public function searchByFilter(Request $request)
     {
         if ($request->filter === 'Filtro' || $request->search === null){
-           /* Toastr::warning('Revise los parametros de busqueda', 'Buscar');*/
 
             return redirect()->route('students.index');
         }
 
         $students = Student::where($request->filter, 'like', '%' . $request->search . '%')->paginate(10);
         if ($students->isEmpty()){
-           /* Toastr::info('No se encontraron coincidencias');*/
             return redirect()->route('students.index');
         }
 
