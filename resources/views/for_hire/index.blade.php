@@ -47,7 +47,7 @@
                     <td>{{ $for_hire->student->address }}</td>
                     <td>
                     <td>
-                        <form style="display:inline;" action="{{ route('for_hire.destroy', $for_hire->id) }}" method="POST">
+                        <form style="display:inline;" action="{{ route('for_hire.destroy', [$for_hire->id, $for_hire->book->id]) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger" type="submit">

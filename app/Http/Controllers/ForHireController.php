@@ -118,9 +118,12 @@ class ForHireController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$bookid)
     {
         ForHire::findOrFail($id) -> delete($id);
+        $books=Book::findOrFail($bookid);
+        $books->setAttribute('condition','1');
+        $books->save();
         return redirect()->action('ForHireController@index');
     }
 
