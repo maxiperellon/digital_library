@@ -42,16 +42,13 @@
             <a class="navbar-brand">Libros</a>
             <ul class="navbar-nav">
                 <li>
-                    <form class="form-inline my-2 my-lg-0" method="post" action="{{route('for_hire.searchByFilter')}}">
+                    <form class="form-inline my-2 my-lg-0" method="post" action="{{route('for_hire.searchByFilter', $student->id)}}">
                         @csrf
                         <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="search">
                         <div class="input-group mr-sm-2">
                             <select class="custom-select" id="inputGroupSelect01" name="filter">
                                 <option selected>Filtro</option>
                                 <option value="isbn">ISBN</option>
-                                <option value="name">Nombre</option>
-                                <option value="author">Autor</option>
-                                <option value="category">Categoría</option>
                             </select>
                         </div>
                         <button class="btn btn-outline-info my-2 my-sm-2" type="submit">Buscar</button>

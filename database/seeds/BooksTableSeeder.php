@@ -13,7 +13,7 @@ class BooksTableSeeder extends Seeder
     {
         Book::truncate();
 
-        factory(Book::class, 8)->create();
+        factory(Book::class, 40)->create();
 
     }
 }
