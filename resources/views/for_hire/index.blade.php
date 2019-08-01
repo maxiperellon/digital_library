@@ -6,16 +6,13 @@
             <a class="navbar-brand">Prestamos</a>
             <ul class="navbar-nav">
                 <li>
-                    <form class="form-inline my-2 my-lg-0" method="post" action="{{route('books.searchByFilter')}}">
+                    <form class="form-inline my-2 my-lg-0" method="post" action="{{route('for_hire.searchForHire')}}">
                         @csrf
                         <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="search">
                         <div class="input-group mr-sm-2">
                             <select class="custom-select" id="inputGroupSelect01" name="filter">
                                 <option selected>Filtro</option>
-                                <option value="isbn">ISBN</option>
-                                <option value="name">Nombre</option>
-                                <option value="author">Autor</option>
-                                <option value="category">Categoría</option>
+                                <option value="dni">DNI</option>
                             </select>
                         </div>
                         <button class="btn btn-outline-info my-2 my-sm-2" type="submit">Buscar</button>
@@ -27,6 +24,7 @@
         <table class="table">
             <thead class="thead-light">
             <tr>
+                <th scope="col">DNI</th>
                 <th scope="col">Nombre del Alumno</th>
                 <th scope="col">Nombre del Libro</th>
                 <th scope="col">Carrera</th>
@@ -40,6 +38,7 @@
 
             @foreach($for_hires as $for_hire)
                 <tr>
+                    <td>{{ $for_hire->student->dni }}</td>
                     <td>{{ $for_hire->student->name }}</td>
                     <td>{{ $for_hire->book->name }}</td>
                     <td>{{ $for_hire->student->career }}</td>

@@ -53,5 +53,6 @@ Route::delete('/prestamo_borrado/{id}/{bookid?}', 'ForHireController@destroy')->
 Route::post('/search/{id?}/{bookid?}', 'ForHireController@searchByFilter')->name('for_hire.searchByFilter');
 Route::get('/realizar_prestamo/{id}/', 'ForHireController@show')->name('for_hire.show');
 Route::get('/prestamo/{id}/{bookid?}', 'ForHireController@add')->name('for_hire.add');
+Route::post('/prestamos/buscar/', 'ForHireController@searchForHire')->name('for_hire.searchForHire');
 
 
