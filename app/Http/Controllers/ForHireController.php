@@ -98,8 +98,6 @@ class ForHireController extends Controller
 
         $for_hires = ForHire::whereHas('student', function ($query) use ($request) {
             $query->where('dni', 'like', '%'.$request->search.'%');
-            /*aqui estamos consultanto la tabla student por el campo name*/
-
         })->get();
 
         return view('for_hire.index', compact('for_hires'));

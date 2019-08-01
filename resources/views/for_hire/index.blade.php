@@ -18,6 +18,13 @@
                         <button class="btn btn-outline-info my-2 my-sm-2" type="submit">Buscar</button>
                     </form>
                 </li>
+                <li>
+                    <div class="my-sm-2" >
+                        <a class="btn btn-success float-right ml-sm-2" href="{{ route('students.index')}}">
+                            Realizar un nuevo prestamo
+                        </a>
+                    </div>
+                </li>
             </ul>
         </nav>
         {{--Tabla de Prestamos--}}
@@ -38,7 +45,7 @@
 
             @foreach($for_hires as $for_hire)
                 <tr>
-                    <td>{{ $for_hire->student->dni }}</td>
+                    <th>{{ $for_hire->student->dni }}</th>
                     <td>{{ $for_hire->student->name }}</td>
                     <td>{{ $for_hire->book->name }}</td>
                     <td>{{ $for_hire->student->career }}</td>
