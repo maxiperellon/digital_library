@@ -81,12 +81,27 @@ class ForHireController extends Controller
     public function searchByFilter(Request $request, $id)
     {
         $student = Student::findOrFail($id);
-        $books = Book::where('isbn', '=', $request->search)->get();
+        $books = Book::where('isbn', 'like', '%'.$request->search.'%')->get();
         if ($request->filter === 'Filtro' || $request->search === null)
         {
             return redirect()->route('for_hire.show', compact('student'));
         }
         return view('for_hire.show', compact('books'), compact('student'));
+    }
+
+    public function searchForHire(Request $request)
+    {
+        if ($request->filter === 'Filtro' || $request->search === null)
+        {
+            return redirect()->route('for_hire.index');
+        }
+
+        $for_hires = ForHire::whereHas('student', function ($query) use ($request) {
+            $query->where('dni', 'like', '%'.$request->search.'%');
+        })->get();
+
+        return view('for_hire.index', compact('for_hires'));
+
     }
 
     /**
